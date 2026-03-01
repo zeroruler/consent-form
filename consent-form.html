@@ -1,0 +1,258 @@
+// Variables used by Scriptable.
+// These must be at the very top of the file. Do not edit.
+// icon-color: deep-gray; icon-glyph: magic;
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>차량 탑승 및 안전 수칙 동의서</title>
+    <style>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f4f5f7;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            touch-action: pan-y; /* 모바일 세로 스크롤 허용 */
+        }
+        .form-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            color: #333333;
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #777777;
+            font-size: 13px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .terms-box {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 13px;
+            color: #555555;
+            height: 200px;
+            overflow-y: auto;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .terms-box h3 {
+            font-size: 14px;
+            color: #222222;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+        .checkbox-container input {
+            margin-top: 3px;
+            margin-right: 10px;
+            accent-color: #0066ff;
+            width: 18px;
+            height: 18px;
+        }
+        .signature-group {
+            margin-bottom: 20px;
+        }
+        .signature-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .signature-header label {
+            font-size: 13px;
+            color: #333;
+            font-weight: bold;
+        }
+        .clear-btn {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            font-size: 11px;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #666;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fafafa;
+            width: 100%;
+            height: 150px;
+            display: block;
+            touch-action: none; /* 캔버스 안에서는 스크롤 방지 (서명 집중) */
+        }
+        .submit-btn {
+            width: 100%;
+            background-color: #0066ff;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #0052cc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>탑승 및 안전 수칙 동의서</h2>
+    <p class="subtitle">안전하고 쾌적한 주행을 위한 탑승자 서약</p>
+
+    <div class="terms-box">
+        <h3>제 1 조 (목적 및 상황 인지)</h3>
+        본 동의서는 운전자와 탑승자 모두의 안전을 도모하기 위해 작성되었습니다. 탑승자는 본 차량의 운전자가 최근 면허를 취득한 '초보 운전자'임을 명확히 인지하고 탑승합니다.<br><br>
+
+        <h3>제 2 조 (탑승자의 의무와 협조)</h3>
+        탑승자는 운전자의 안전 운행을 위해 다음 사항을 준수할 의무를 가집니다.<br>
+        1. 주행 중 큰 소리를 내거나 갑작스러운 행동으로 운전자의 주의를 분산시키지 않습니다.<br>
+        2. 내비게이션 경로 확인, 차선 변경 시 주변 시야 확보 등 운전자가 요청하는 보조 역할에 적극 협조합니다.<br>
+        3. 운전자의 조작 실수나 경로 이탈 발생 시, 비난을 삼가고 평정심을 유지할 수 있도록 돕습니다.<br><br>
+
+        <h3>제 3 조 (상황에 대한 양해)</h3>
+        탑승자는 급브레이크, 주차 지연, 목적지 도착 시간 지연 등 초보 운전의 특성상 발생할 수 있는 불가피한 상황 및 다소간의 승차감 저하에 대해 사전에 동의하며 이를 너그럽게 양해합니다.<br><br>
+        
+        본 동의는 서명 즉시 효력을 발생하며, 탑승 종료 시까지 유효합니다.
+    </div>
+
+    <label class="checkbox-container">
+        <input type="checkbox" id="agreeCheckbox">
+        <span>위의 차량 탑승 및 안전 수칙을 모두 숙지하였으며, 이에 동의합니다. (필수)</span>
+    </label>
+
+    <div class="signature-group">
+        <div class="signature-header">
+            <label>탑승자 서명</label>
+            <button class="clear-btn" onclick="clearSignature()">지우기</button>
+        </div>
+        <canvas id="signaturePad"></canvas>
+    </div>
+
+    <button class="submit-btn" onclick="submitForm()">서명 및 동의 완료</button>
+</div>
+
+<script>
+    const canvas = document.getElementById('signaturePad');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    let hasSigned = false;
+
+    // 캔버스 해상도 맞추기 (선명하게 그리기 위해)
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+    }
+    
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // 마우스 및 터치 좌표 가져오기
+    function getPointerPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        if (e.touches) {
+            return {
+                x: e.touches[0].clientX - rect.left,
+                y: e.touches[0].clientY - rect.top
+            };
+        }
+        return {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        };
+    }
+
+    // 그리기 시작
+    function startDrawing(e) {
+        e.preventDefault();
+        isDrawing = true;
+        hasSigned = true;
+        const pos = getPointerPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+    }
+
+    // 그리는 중
+    function draw(e) {
+        if (!isDrawing) return;
+        e.preventDefault();
+        const pos = getPointerPos(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+    }
+
+    // 그리기 끝
+    function stopDrawing() {
+        isDrawing = false;
+    }
+
+    // 이벤트 리스너 등록 (마우스)
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+
+    // 이벤트 리스너 등록 (터치 - 스마트폰용)
+    canvas.addEventListener('touchstart', startDrawing, { passive: false });
+    canvas.addEventListener('touchmove', draw, { passive: false });
+    canvas.addEventListener('touchend', stopDrawing);
+
+    // 서명 지우기
+    function clearSignature() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        hasSigned = false;
+    }
+
+    // 폼 제출 검사
+    function submitForm() {
+        const checkbox = document.getElementById('agreeCheckbox');
+
+        if (!checkbox.checked) {
+            alert('약관에 동의해 주셔야 탑승이 가능합니다.');
+            return;
+        }
+        if (!hasSigned) {
+            alert('전자 서명 패드에 서명을 해주세요.');
+            return;
+        }
+
+        alert('탑승 동의 및 서명이 완료되었습니다!\n안전 벨트를 꽉 매주세요!');
+        clearSignature();
+        checkbox.checked = false;
+    }
+</script>
+
+</body>
+</html>
