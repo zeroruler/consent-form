@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>차량 탑승 및 책임 면책 동의서</title>
+    <style>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #222222;
+            margin: 0;
+            padding: 0;
+            touch-action: pan-y;
+            line-height: 1.6;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px 60px 20px;
+            box-sizing: border-box;
+        }
+        h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            text-align: center;
+            font-weight: 800;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #555555;
+            font-size: 13px;
+            margin-top: 0;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+            word-break: keep-all;
+        }
+        
+        .term-section {
+            margin-bottom: 40px;
+        }
+        .term-section h3 {
+            font-size: 15px;
+            color: #000000;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .term-section p {
+            font-size: 13px;
+            color: #444444;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: justify;
+            word-break: keep-all;
+        }
+        .privacy-box {
+            background-color: #f9f9f9;
+            border: 1px solid #dcdcdc;
+            padding: 12px;
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        .privacy-box ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        .privacy-box li {
+            margin-bottom: 4px;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #000;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 12px;
+            background-color: #f4f4f4;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+        .checkbox-label input {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+            accent-color: #000000;
+        }
+
+        .all-agree-section {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 2px solid #000;
+            margin-bottom: 30px;
+        }
+        .all-agree-label {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: #000;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        .all-agree-label input {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            accent-color: #000000;
+        }
+
+        .signature-group {
+            margin-bottom: 40px;
+        }
+        .signature-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .signature-header label {
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .clear-btn {
+            background: none;
+            border: 1px solid #cccccc;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            color: #333;
+        }
+        canvas {
+            border: 1px solid #cccccc;
+            background-color: #fdfdfd;
+            width: 100%;
+            height: 200px;
+            display: block;
+            touch-action: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .submit-btn:hover {
+            background-color: #333333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>차량 탑승 및 책임 면책 동의서</h2>
+    <p class="subtitle">본 동의서는 운전자와 탑승자 간의 명확한 책임 소재를 규정하며, 탑승 전 반드시 숙지 및 서명되어야 합니다.</p>
+
+    <div class="term-section">
+        <h3>제 1 조 (목적 및 차량 정보)</h3>
+        <p>본 동의서는 운전자가 운행하는 차량(기아 모닝, 이하 '본 차량')에 탑승자(이하 '본인')가 동승함에 있어, 운행 중 발생할 수 있는 제반 위험성을 사전에 고지하고 이에 대한 책임 소재를 명확히 하는 것을 목적으로 합니다.</p>
+        <label class="checkbox-label">
+            <input type="checkbox" class="term-check" required>
+            <span>동의합니다.</span>
+        </label>
+    </div>
+
+    <div class="term-section">
+        <h3>제 2 조 (위험의 고지 및 인지)</h3>
+        <p>본인은 본 차량의 운전자가 도로교통법상 주행 경험이 미숙한 상태임을 사전에 명시적으로 고지받았습니다. 본인은 이에 따른 급제동, 조향 장치의 급격한 조작, 규정 속도 미달 주행, 경로 이탈 및 이에 수반되는 신체적·정신적 스트레스 발생 가능성을 온전히 인지한 상태에서 자발적으로 탑승합니다.</p>
+        <label class="checkbox-label">
+            <input type="checkbox" class="term-check" required>
+            <span>동의합니다.</span>
+        </label>
+    </div>
+
+    <div class="term-section">
+        <h3>제 3 조 (안전 수칙 준수 의무)</h3>
+        <p>본인은 차량 탑승 시부터 하차 시까지 반드시 안전벨트를 착용할 의무가 있습니다. 또한, 주행 중 큰 소음 발생, 운전자의 시야 방해, 운전대(스티어링 휠) 조작 간섭 등 운전자의 주의력을 훼손할 수 있는 일체의 행위를 엄격히 금지하며, 이를 위반하여 발생한 사고의 책임은 전적으로 본인에게 있음을 확인합니다.</p>
+        <label class="checkbox-label">
+            <input type="checkbox" class="term-check" required>
+            <span>동의합니다.</span>
+        </label>
+    </div>
+
+    <div class="term-section">
+        <h3>제 4 조 (면책 및 손해배상 청구의 포기)</h3>
+        <p>본인은 본 차량 탑승 중 운전자의 고의 또는 중대한 과실이 명백히 입증되지 않는 한, 운전 미숙으로 인하여 발생한 단순 접촉 사고, 승차감 저하로 인한 신체적 불편감, 목적지 도착 지연에 따른 간접적 손실 등에 대하여 운전자에게 민·형사상 손해배상 및 위자료를 청구할 권리를 포기합니다.</p>
+        <label class="checkbox-label">
+            <input type="checkbox" class="term-check" required>
+            <span>동의합니다.</span>
+        </label>
+    </div>
+
+    <div class="term-section">
+        <h3>제 5 조 (관할 법원)</h3>
+        <p>본 동의서의 해석 및 본 차량의 운행과 관련하여 당사자 간에 법적 분쟁이 발생할 경우, 대한민국의 법률을 준거법으로 하며, 인천지방법원 부천지원을 제1심 전속적 합의관할 법원으로 지정함에 동의합니다.</p>
+        <label class="checkbox-label">
+            <input type="checkbox" class="term-check" required>
+            <span>동의합니다.</span>
+        </label>
+    </div>
+
+    <div class="term-section">
+        <h3>제 6 조 (개인정보 수집 및 이용 동의)</h3>
+        <p>본 동의서의 효력 증빙 및 분쟁 해결을 위하여 아래와 같이 개인정보를 수집 및 이용합니다.</p>
+        <div class="privacy-box">
+            <ul>
+                <li><strong>수집 항목:</strong> 탑승자 성명, 전자 서명 데이터, 동의 일시, 접속 기기 정보</li>
+                <li><strong>수집 목적:</strong> 탑승자 신원 확인, 책임 면책 동의의 법적 증빙자료 확보</li>
+                <li><strong>보유 및 이용 기간:</strong> 동의서 작성일로부터 3년 (전자상거래 등에서의 소비자보호에 관한 법률 준용)</li>
+            </ul>
+            ※ 귀하는 본 수집 동의를 거부할 권리가 있으나, 거부 시 본 차량 탑승이 엄격히 제한됩니다.
+        </div>
+        <label class="checkbox-label">
+            <input type="checkbox" class="term-check" required>
+            <span>동의합니다.</span>
+        </label>
+    </div>
+
+    <div class="all-agree-section">
+        <label class="all-agree-label">
+            <input type="checkbox" id="checkAll">
+            <span>본인은 위 모든 조항을 읽고 온전히 이해하였으며, 본 약관에 전체 동의합니다.</span>
+        </label>
+    </div>
+
+    <div class="signature-group">
+        <div class="signature-header">
+            <label>탑승자 전자 서명 (필수)</label>
+            <button class="clear-btn" onclick="clearSignature()">초기화</button>
+        </div>
+        <canvas id="signaturePad"></canvas>
+    </div>
+
+    <button class="submit-btn" onclick="submitForm()">동의 및 전자문서 제출</button>
+</div>
+
+<script>
+    const checkAll = document.getElementById('checkAll');
+    const termChecks = document.querySelectorAll('.term-check');
+
+    checkAll.addEventListener('change', function() {
+        termChecks.forEach(function(check) {
+            check.checked = checkAll.checked;
+        });
+    });
+
+    termChecks.forEach(function(check) {
+        check.addEventListener('change', function() {
+            const allChecked = Array.from(termChecks).every(c => c.checked);
+            checkAll.checked = allChecked;
+        });
+    });
+
+    const canvas = document.getElementById('signaturePad');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    let hasSigned = false;
+
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 2.5;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+    }
+    
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function getPointerPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        if (e.touches) {
+            return {
+                x: e.touches[0].clientX - rect.left,
+                y: e.touches[0].clientY - rect.top
+            };
+        }
+        return {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        };
+    }
+
+    function startDrawing(e) {
+        e.preventDefault();
+        isDrawing = true;
+        hasSigned = true;
+        const pos = getPointerPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+        e.preventDefault();
+        const pos = getPointerPos(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+    }
+
+    function stopDrawing() {
+        isDrawing = false;
+    }
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+
+    canvas.addEventListener('touchstart', startDrawing, { passive: false });
+    canvas.addEventListener('touchmove', draw, { passive: false });
+    canvas.addEventListener('touchend', stopDrawing);
+
+    function clearSignature() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        hasSigned = false;
+    }
+
+    function submitForm() {
+        const allChecked = Array.from(termChecks).every(c => c.checked);
+
+        if (!allChecked) {
+            alert('모든 필수 조항(개인정보 수집 포함)에 동의하셔야 서류 제출이 가능합니다.');
+            return;
+        }
+        if (!hasSigned) {
+            alert('전자 서명란에 자필 서명을 기입해 주십시오.');
+            return;
+        }
+
+        const now = new Date();
+        const timeString = now.toLocaleString();
+        
+        alert(`[접수 완료]\n\n전자 서명이 정상적으로 접수되었습니다.\n- 접수 일시: ${timeString}\n\n본 동의서는 전자문서 및 전자거래 기본법에 의거하여 안전하게 기록 및 보관됩니다.`);
+        
+        clearSignature();
+        checkAll.checked = false;
+        termChecks.forEach(c => c.checked = false);
+    }
+</script>
+
+</body>
+</html>
